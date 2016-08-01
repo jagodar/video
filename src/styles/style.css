@@ -1,0 +1,16 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size:14px;
+  height:100%;
+  margin: auto;
+}
+
+md-toolbar {
+  padding: 0 2rem;
+  min-height: 6rem;
+}
+
+md-input-container {
+  width: 50%;
+  margin: 3rem auto;
+}
