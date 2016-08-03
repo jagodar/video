@@ -18,7 +18,7 @@ var src = {
 
 var out = {
   file: 'app.min.js',
-  folder: 'src/scripts'
+  folder: 'src/build'
 };
 
 gulp.task('html', function() {
@@ -52,15 +52,15 @@ gulp.task('scripts', function() {
 
 gulp.task('serve', ['build', 'watch'], function() {
   connect.server({
-    port: 8060,
+    port: 8000,
     livereload: true
   });
 });
 
 
 gulp.task('watch', function() {
-  gulp.watch(src.html, ['html']);
-  gulp.watch(src.scripts.all, ['scripts']);
+  gulp.watch(src.html, ['html', 'scripts']);
+  // gulp.watch(src.scripts.all, ['scripts']);
 });
 
 gulp.task('build', ['scripts']);
