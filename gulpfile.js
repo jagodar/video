@@ -42,7 +42,8 @@ gulp.task('scripts', function() {
         .pipe(sourcemaps.init({
           loadMaps: true
         }))
-        .pipe(uglify())
+        // TO DO: Uglify breaks di, even inline array annotation 
+        // .pipe(uglify())
         .pipe(sourcemaps.write('./', {
           includeContent: true
         }))
@@ -52,7 +53,7 @@ gulp.task('scripts', function() {
 
 gulp.task('serve', ['build', 'watch'], function() {
   connect.server({
-    port: 8000,
+    port: 8080,
     livereload: true
   });
 });
