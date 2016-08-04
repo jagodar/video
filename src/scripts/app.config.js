@@ -4,9 +4,9 @@ const themeConfig = ['$mdThemingProvider', function($mdThemingProvider) {
 }]
 
 const ytApiConfig = function() {
-	gapi.load('client', () => {
+	gapi.load('youtube', 'v3', 'client', () => {
 		gapi.client.setApiKey('AIzaSyA8ngE7e1236movhXfRbRORTV7NbvuhomU');
-		console.log("helllo, yt api here");	
+		console.log("yt api loaded");	
 	})
 }
 

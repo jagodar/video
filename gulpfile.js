@@ -53,7 +53,7 @@ gulp.task('scripts', function() {
 
 gulp.task('serve', ['build', 'watch'], function() {
   connect.server({
-    port: 8080,
+    port: 8040,
     livereload: true
   });
 });
