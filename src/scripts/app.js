@@ -14,8 +14,6 @@ const root = angular
 	])
 	.component('app', AppComponent)
 	.config(config.themeConfig)
-	.config(config.ytApiConfig)
-	.run(config.vimeoApiConfig)
 	.name;
 
 export default root;

@@ -1,8 +1,11 @@
 import Youtube from './youtube';
-import Input from './input'
+import Vimeo from './vimeo';
+import Input from './input';
+
 const components = angular
   .module('app.components', [
   		Youtube,
+  		Vimeo,
   		Input
   	])
   .name;
