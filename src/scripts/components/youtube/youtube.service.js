@@ -20,10 +20,25 @@ class YoutubeService {
 
 	// Angular 
 
-	 search(query, callback) {
+	//  search(query, callback) {
+	// 	this.$http({
+	// 		method: 'GET',
+	// 		url: 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=' + query + '&type=video&key=AIzaSyA8ngE7e1236movhXfRbRORTV7NbvuhomU'
+	// 	}).then(function successCallback(response) {
+	// 		console.log(response.status);
+	// 		console.log(response.data);
+	// 	}, function errorCallback(response) {
+	// 		console.log(response.status);
+	// 	})
+	// }
+
+	search(query, callback) {
 		this.$http({
 			method: 'GET',
-			url: 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=' + query + '&type=video&key=AIzaSyA8ngE7e1236movhXfRbRORTV7NbvuhomU'
+			url: 'https://api.vimeo.com/videos?page=1&per_page=1&query=' + query,
+			headers: {
+				Authorization : "bearer 837710505a31ac4787e92e6ffa5b11c9"
+			}
 		}).then(function successCallback(response) {
 			console.log(response.status);
 			console.log(response.data);

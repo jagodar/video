@@ -10,4 +10,16 @@ const ytApiConfig = function() {
 	})
 }
 
-export { themeConfig, ytApiConfig };
+const vimeoApiConfig = ['$http', function($http) {
+	$http({
+		method: 'POST',
+		url: 'https://api.vimeo.com/oauth/authorize/client',
+		headers: {
+			Authorization : "bearer 837710505a31ac4787e92e6ffa5b11c9"
+		},
+		params: {
+			grant_type: 'client_credentials'
+		}
+	})
+}]
+export { themeConfig, ytApiConfig, vimeoApiConfig };
