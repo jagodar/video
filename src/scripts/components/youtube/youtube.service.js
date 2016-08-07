@@ -6,12 +6,13 @@ class YoutubeService {
 
 	// AJAX
 
-	searchAJAX(query, callback) {
+	searchAJAX(query) {
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 			if (xhttp.readyState == 4 && xhttp.status == 200) {
 				var response = xhttp.responseText;
 				console.log(response);
+				return response;
 			}
 		}
 		xhttp.open('GET', 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=' + query + '&type=video&key=AIzaSyA8ngE7e1236movhXfRbRORTV7NbvuhomU', true);
@@ -20,13 +21,14 @@ class YoutubeService {
 
 	// Angular 
 
-	search(query, callback) {
+	search(query) {
 		this.$http({
 			method: 'GET',
 			url: 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=' + query + '&type=video&key=AIzaSyA8ngE7e1236movhXfRbRORTV7NbvuhomU'
 		}).then(function successCallback(response) {
 			console.log(response.status);
 			console.log(response.data);
+			return response.data;
 		}, function errorCallback(response) {
 			console.log(response.status);
 		})

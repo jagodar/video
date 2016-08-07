@@ -1,10 +1,13 @@
 class VimeoService {
 
-	constructor($http) {
+	constructor($http, InputStorageService) {
 		this.$http = $http;
+		this.InputStorageService = InputStorageService;
 	}
 
-	search(query, callback) {
+	
+	search(query) {
+		var self = this;
 		this.$http({
 			method: 'GET',
 			url: 'https://api.vimeo.com/videos/' + query,
@@ -14,6 +17,7 @@ class VimeoService {
 		}).then(function successCallback(response) {
 			console.log(response.status);
 			console.log(response.data);
+			self.InputStorageService.set(query, response);
 		}, function errorCallback(response) {
 			console.log(response.status);
 		})
@@ -21,6 +25,6 @@ class VimeoService {
 
 }
 
-VimeoService.$inject = ['$http'];
+VimeoService.$inject = ['$http', 'InputStorageService'];
 
 export default VimeoService;
