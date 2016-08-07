@@ -9,7 +9,7 @@ const AppComponent = {
 		  <input-component></input-component>
 
 		<!-- Gallery -->
-	   	<video-gallery></video-gallery>
+	   	<gallery-component></gallery-component>
 	`
 };
 

@@ -3,4 +3,4 @@ const themeConfig = ['$mdThemingProvider', function($mdThemingProvider) {
                       .primaryPalette("red");
 }]
 
-export { themeConfig };
+export default themeConfig;
