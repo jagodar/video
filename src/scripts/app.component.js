@@ -9,7 +9,7 @@ const AppComponent = {
 		  <input-component></input-component>
 
 		<!-- Gallery -->
-	    <div ng-view></div>
+	   	<video-gallery></video-gallery>
 	`
 };
 

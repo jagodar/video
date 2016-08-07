@@ -1,7 +1,8 @@
 class YoutubeService {
 
-	constructor($http) {
+	constructor($http, InputStorageService) {
 		this.$http = $http;
+		this.InputStorageService = InputStorageService;
 	}
 
 	// AJAX
@@ -22,13 +23,12 @@ class YoutubeService {
 	// Angular 
 
 	search(query) {
+		var self = this;
 		this.$http({
 			method: 'GET',
 			url: 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=' + query + '&type=video&key=AIzaSyA8ngE7e1236movhXfRbRORTV7NbvuhomU'
 		}).then(function successCallback(response) {
-			console.log(response.status);
-			console.log(response.data);
-			return response.data;
+			self.InputStorageService.set(query, response.data.items[0]);
 		}, function errorCallback(response) {
 			console.log(response.status);
 		})
@@ -36,6 +36,6 @@ class YoutubeService {
 
 }
 
-YoutubeService.$inject = ['$http'];
+YoutubeService.$inject = ['$http', 'InputStorageService'];
 
 export default YoutubeService;
