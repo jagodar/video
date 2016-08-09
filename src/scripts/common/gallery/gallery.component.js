@@ -8,7 +8,8 @@ import controller from './gallery.controller';
 const GalleryComponent = {
 	controller,
 	template: `
-		
+		<md-subheader>gallery-list</md-subheader>
+		<gallery-list></gallery-list>
 	`
 }
 

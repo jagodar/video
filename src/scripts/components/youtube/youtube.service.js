@@ -1,5 +1,6 @@
 class YoutubeService {
 
+
 	constructor($http, InputStorageService) {
 		this.$http = $http;
 		this.InputStorageService = InputStorageService;
@@ -21,14 +22,32 @@ class YoutubeService {
 	}
 
 	// Angular 
+	processData(data) {
+		var result = {
+			title: data.snippet.title,
+			id: data.id,
+			embed: data.player,
+			thumbnails: {
+				small: data.snippet.thumbnails.default.url,
+				medium: data.snippet.thumbnails.standard.url,
+				high:data.snippet.thumbnails.maxres.url
+			},
+			likes: data.statistics.likeCount,
+			views: data.statistics.viewCount,
+			favourites: false,
+			date: new Date()
+		};
+		
+		return result;
+	}
 
 	search(query) {
 		var self = this;
 		this.$http({
 			method: 'GET',
-			url: 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=' + query + '&type=video&key=AIzaSyA8ngE7e1236movhXfRbRORTV7NbvuhomU'
+			url: 'https://www.googleapis.com/youtube/v3/videos?part=snippet%2C+statistics%2C+player&id=' + query + '&key=AIzaSyA8ngE7e1236movhXfRbRORTV7NbvuhomU'
 		}).then(function successCallback(response) {
-			self.InputStorageService.set(query, response.data.items[0]);
+			self.InputStorageService.set(query, self.processData(response.data.items[0]));
 		}, function errorCallback(response) {
 			console.log(response.status);
 		})

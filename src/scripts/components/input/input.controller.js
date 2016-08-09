@@ -16,14 +16,19 @@ class InputController {
 	submit() {
 		var q = "";
 		this.validUrl = this.InputService.validateUrl(this.url);
+		console.log(this.validUrl);
 		if (this.validUrl === "youtube") {
-			this.data = this.youtubeService.search(this.url);
+			q = this.InputService.youtubeQuery(this.url);
+			this.data = this.youtubeService.search(q);
 		} else if (this.validUrl === "vimeo") {
 			q = this.InputService.vimeoQuery(this.url);
 			this.data = this.vimeoService.search(q);
 		} 
-		this.InputStorageService.set(q || this.url, this.data);
+		if (q != "") {
+			this.InputStorageService.set(q, this.data);
+		}
 		this.url = "";
+		this.validUrl = "";
 		this.data = {};
 	}
 }
