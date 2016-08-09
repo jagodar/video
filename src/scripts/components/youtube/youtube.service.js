@@ -34,7 +34,7 @@ class YoutubeService {
 			},
 			likes: data.statistics.likeCount,
 			views: data.statistics.viewCount,
-			favourites: false,
+			favorites: false,
 			date: new Date()
 		};
 		

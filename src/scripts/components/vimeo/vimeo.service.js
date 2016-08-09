@@ -17,7 +17,7 @@ class VimeoService {
 			},
 			likes: data.metadata.connections.likes.total,
 			views: data.stats.plays,
-			favourites: false,
+			favorites: false,
 			date: new Date()
 		};
 		return result;

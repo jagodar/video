@@ -10,7 +10,8 @@ const root = angular
 	.module('app', [
 		Components,
 		Common,
-		ngMaterial
+		ngMaterial,
+		'ngMdIcons'
 	])
 	.component('app', AppComponent)
 	.config(config)

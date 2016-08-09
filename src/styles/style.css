@@ -18,3 +18,35 @@ md-input-container {
 md-button {
 	display: inline;
 }
+
+/*md-list {
+	line-height: 1rem;
+	width: 70%;
+	margin: auto;
+}*/
+
+.md-list-item-text h3 {
+	margin: 0;
+}
+
+.md-list-item-text p {
+	margin: 0;
+}
+md-list-item {
+	margin: 1rem 0;
+}
+
+md-list img {
+	width: 120px;
+	height: 90px;
+	margin: 0 1rem;
+}
+
+.nav {
+	width: 70%;
+	margin: auto;
+}
+md-card {
+	width: 30%;
+	display: inline-block;
+}

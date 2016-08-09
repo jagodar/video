@@ -1,4 +1,4 @@
-class GalleryListController {
+class GalleryCardController {
 	constructor($scope, GalleryService, svg) {
 		$scope.GalleryService = GalleryService;
 	}
@@ -7,9 +7,9 @@ class GalleryListController {
 		video.favorites = !video.favorites;
 	}
 	delete() {
-
+		
 	}
 }
 
-GalleryListController.$inject = ['$scope', 'GalleryService'];
-export default GalleryListController;
+GalleryCardController.$inject = ['$scope', 'GalleryService'];
+export default GalleryCardController;
